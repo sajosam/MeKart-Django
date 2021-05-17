@@ -25,7 +25,14 @@ SECRET_KEY = '1of8(v(s!&4w_a5vt=6z3c*d)&8@fz#_=!oh9$)q%wv56z)5^#'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+
+# ADMINS = (
+#     ('Sajo Sam', 'sajosamambalakara@gmail.com'),
+
+# )
+# MANAGERS = ADMINS
+
+# ALLOWED_HOSTS = ['127.0.0.1', 'localhost']
 
 
 # Application definition
@@ -40,6 +47,7 @@ INSTALLED_APPS = [
     'category',
     'accounts',
     'store',
+    'carts',
 ]
 
 MIDDLEWARE = [
@@ -66,6 +74,7 @@ TEMPLATES = [
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
                 'category.context_processors.menu_links',
+                'carts.context_processors.counter',
             ],
         },
     },
