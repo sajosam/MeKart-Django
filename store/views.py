@@ -3,7 +3,7 @@ from django.core.checks import messages
 from django.http.response import HttpResponse
 from category.models import Category
 from django.shortcuts import get_object_or_404, redirect, render
-from . models import Product, ReviewRating
+from . models import Product, ReviewRating, Productgallery
 from carts.models import CartItem, Cart
 from carts.views import _cart_id
 from django.core.paginator import EmptyPage, PageNotAnInteger, Paginator
@@ -11,6 +11,7 @@ from django.db.models import Q
 from .forms import ReviewForm
 from django.contrib import messages
 from orders.models import OrderProduct
+
 
 # Create your views here.
 
@@ -65,11 +66,14 @@ def product_detail(request,  category_slug, product_slug):
     reviews = ReviewRating.objects.filter(
         product_id=single_product.id, status=True)
 
+    product_gallery=Productgallery.objects.filter(product_id=single_product.id)
+
     context = {
         'single_product': single_product,
         'in_cart': in_cart,
         'orderproduct': orderproduct,
         'reviews': reviews,
+        'product_gallery':product_gallery,
     }
     return render(request, 'store/product_detail.html', context)
 
