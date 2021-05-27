@@ -39,7 +39,7 @@ DEBUG = config('DEBUG',default=True, cast=bool)
 # )
 # MANAGERS = ADMINS
 
-ALLOWED_HOSTS = ['MeKart-Project-env.eba-uhgebega.us-west-2.elasticbeanstalk.com']
+ALLOWED_HOSTS = ['MeKart-env.eba-3mqbb7hg.ap-south-1.elasticbeanstalk.com']
 
 
 # Application definition
