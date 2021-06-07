@@ -16,7 +16,7 @@ class AccountAdmin(UserAdmin):
         'last_login', 'date_joined',
     )
     ordering = (
-        'date_joined',
+        '-date_joined',
     )
     filter_horizontal = ()
     list_filter = ()

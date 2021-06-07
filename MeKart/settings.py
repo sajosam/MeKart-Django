@@ -39,7 +39,7 @@ DEBUG = config('DEBUG',default=True, cast=bool)
 # )
 # MANAGERS = ADMINS
 
-ALLOWED_HOSTS = ['MeKart-env.eba-3mqbb7hg.ap-south-1.elasticbeanstalk.com']
+# ALLOWED_HOSTS = [' MeKart-env.eba-fbwnxrdt.ap-south-1.elasticbeanstalk.com', '127.0.0.1']
 
 
 # Application definition
@@ -106,10 +106,21 @@ AUTH_USER_MODEL = 'accounts.Account'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'vcart',
+        'USER': 'postgres',
+        'PASSWORD': '000555000',
+        'HOST': '127.0.0.1',
+        'PORT': '5432',
     }
 }
+
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.sqlite3',
+#         'NAME': 'db.sqlite3',
+#     }
+# }
 
 
 # Password validation
