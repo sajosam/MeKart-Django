@@ -14,6 +14,7 @@ from typing import cast
 from django.contrib.messages import constants as messages
 from pathlib import Path
 from decouple import config
+import dj_database_url
 
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -30,7 +31,7 @@ SECRET_KEY='1of8(v(s!&4w_a5vt=6z3c*d)&8@fz#_=!oh9$)q%wv56z)5^#'
 # SECURITY WARNING: don't run with debug turned on in production!
 # DEBUG = config('DEBUG',default=True, cast=bool)
 # DEBUG = config('DEBUG', default=True, cast=bool)
-DEBUG = True
+DEBUG = False
 
 
 
@@ -40,7 +41,7 @@ DEBUG = True
 # )
 # MANAGERS = ADMINS
 
-# ALLOWED_HOSTS = [' MeKart-env.eba-fbwnxrdt.ap-south-1.elasticbeanstalk.com', '127.0.0.1']
+ALLOWED_HOSTS = [' MeKart-env.eba-fbwnxrdt.ap-south-1.elasticbeanstalk.com', '127.0.0.1']
 
 
 # Application definition
@@ -69,6 +70,7 @@ MIDDLEWARE = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
     'django_session_timeout.middleware.SessionTimeoutMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware',
 
 ]
 
@@ -105,16 +107,16 @@ AUTH_USER_MODEL = 'accounts.Account'
 # Database
 # https://docs.djangoproject.com/en/3.1/ref/settings/#databases
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'vcart',
-        'USER': 'postgres',
-        'PASSWORD': '000555000',
-        'HOST': '127.0.0.1',
-        'PORT': '5432',
-    }
-}
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.postgresql',
+#         'NAME': 'vcart',
+#         'USER': 'postgres',
+#         'PASSWORD': '000555000',
+#         'HOST': '127.0.0.1',
+#         'PORT': '5432',
+#     }
+# }
 
 # DATABASES = {
 #     'default': {
@@ -122,6 +124,8 @@ DATABASES = {
 #         'NAME': 'db.sqlite3',
 #     }
 # }
+
+DATABASES={'default':dj_database_url.config(default='postgres://postgres:000555000@localhost/vcart')}
 
 
 # Password validation
@@ -183,3 +187,6 @@ EMAIL_PORT = 587
 EMAIL_HOST_USER = 'anjubinu866@gmail.com'
 EMAIL_HOST_PASSWORD = 'Sajo@000'
 EMAIL_USE_TLS = True
+
+
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFileStorage'
