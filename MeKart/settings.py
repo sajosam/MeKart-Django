@@ -15,6 +15,7 @@ from django.contrib.messages import constants as messages
 from pathlib import Path
 from decouple import config
 import dj_database_url
+import os
 
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -164,14 +165,19 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.1/howto/static-files/
 
-STATIC_URL = '/static/'
-STATIC_ROOT = BASE_DIR / 'static'
-STATICFILES_DIRS = [
-    'MeKart/static',
-]
+# STATIC_URL = '/static/'
+# STATIC_ROOT = BASE_DIR / 'static'
+# STATICFILES_DIRS = [
+#     'MeKart/static',
+# ]
 # STATICFILES_DIRS = [
 #     BASE_DIR / "static",
 # ]
+STATIC_URL = '/static/'
+STATIC_ROOT = os.path.join(BASE_DIR, 'static')
+STATICFILES_DIRS = [
+    os.path.join(BASE_DIR, 'MeKart/static'),
+]
 
 
 MEDIA_URL = '/media/'
@@ -187,6 +193,8 @@ EMAIL_PORT = 587
 EMAIL_HOST_USER = 'anjubinu866@gmail.com'
 EMAIL_HOST_PASSWORD = 'Sajo@000'
 EMAIL_USE_TLS = True
+
+SITE_ID = 1
 
 
 # STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFileStorage'
