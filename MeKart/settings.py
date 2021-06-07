@@ -165,13 +165,13 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.1/howto/static-files/
 
 STATIC_URL = '/static/'
-# STATIC_ROOT = BASE_DIR / 'static'
-# STATICFILES_DIRS = [
-#     'MeKart/static',
-# ]
+STATIC_ROOT = BASE_DIR / 'static'
 STATICFILES_DIRS = [
-    BASE_DIR / "static",
+    'MeKart/static',
 ]
+# STATICFILES_DIRS = [
+#     BASE_DIR / "static",
+# ]
 
 
 MEDIA_URL = '/media/'
@@ -189,4 +189,5 @@ EMAIL_HOST_PASSWORD = 'Sajo@000'
 EMAIL_USE_TLS = True
 
 
-STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFileStorage'
+# STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFileStorage'
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
